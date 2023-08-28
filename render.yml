@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: divyabharathi
+    env: node
+    plan: starter
+    buildCommand: yarn install && yarn build
+    startCommand: yarn start
+    healthCheckPath: /_health
+    autoDeploy: false
+    envVars:
+      - key: NODE_VERSION
+        value: ~16.13.0
+      - key: NODE_ENV
+        value: production
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: HOST_NAME
+        sync: false
+
+databases:
+  - name: portfolio-divya
+    plan: starter
